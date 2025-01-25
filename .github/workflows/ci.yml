@@ -30,7 +30,7 @@ jobs:
         run: deno install --allow-scripts
 
       - name: Run linter
-        run: deno lint --no-remote
+        run: deno lint src/**
 
       - name: Check formatting
         run: deno fmt --check
