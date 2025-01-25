@@ -1,0 +1,70 @@
+name: Check and test
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test-frontend:
+    name: Test frontend
+    runs-on: ubuntu-latest
+    env:
+      DENO_DIR: ~/.deno
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.DENO_DIR }}
+          key: ${{ hashFiles('deno.lock') }}
+
+      - name: Setup Deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install dependencies
+        run: deno install --allow-scripts
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Check formatting
+        run: deno fmt --check
+
+      - name: Run tests
+        run: deno test --parallel tests/
+
+  test-backend:
+    name: Test backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup ruff
+        uses: astral-sh/ruff-action@v3
+
+      - name: Check formatting
+        run: ruff format --check
+
+      - name: Lint code
+        run: ruff check
+
+  test-db:
+    name: Test database
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start local db instance
+        run: supabase db start
+
+      - name: Test against local db
+        run: supabase test db

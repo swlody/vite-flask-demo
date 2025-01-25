@@ -1,5 +1,3 @@
-/// <reference lib="deno.ns" />
-
 import "./index.css";
 // @deno-types="@types/react"
 import { StrictMode } from "react";

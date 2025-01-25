@@ -4,11 +4,15 @@
     "build": "deno run -A --node-modules-dir npm:vite build",
     "preview": "deno run -A --node-modules-dir npm:vite preview",
     "serve": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/",
-    "deploy": "deno run -A npm:wrangler deploy --no-bundle"
+    // Workaround because `deno run npm:supabase` is broken right now
+    "dbstart": "node_modules/supabase/bin/supabase start",
+    "dbstop": "node_modules/supabase/bin/supabase stop",
+    "dbreset": "node_modules/supabase/bin/supabase db reset"
   },
   "compilerOptions": {
     "lib": [
       "ES2020",
+      "deno.ns",
       "DOM",
       "DOM.Iterable"
     ],
@@ -24,6 +28,7 @@
     "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.4",
     "react": "npm:react@^18.3.1",
     "react-dom": "npm:react-dom@^18.3.1",
+    "supabase": "npm:supabase@^2.6.8",
     "vite": "npm:vite@^6.0.1",
     "wrangler": "npm:wrangler@^3.105.1"
   },

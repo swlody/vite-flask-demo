@@ -3,12 +3,14 @@
 {
 	"name": "Deno + Python (uv)",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "devcontainer",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"postCreateCommand": "uv venv --project backend",
-	"postStartCommand": "deno install --allow-scripts && uv sync --link-mode=copy --locked --project backend",
-	"features": {},
+	"postStartCommand": "deno install --allow-scripts && uv sync --link-mode=copy --locked --project backend && deno task dbstart",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -16,7 +18,8 @@
 				"ms-python.python",
 				"esbenp.prettier-vscode",
 				"github.vscode-github-actions",
-				"charliermarsh.ruff"
+				"charliermarsh.ruff",
+				"dotenv.dotenv-vscode"
 			],
 			"settings": {
 				"[css]": {

@@ -1,5 +1,3 @@
-/// <reference lib="deno.ns" />
-
 import { assertEquals } from "@std/assert";
 
 Deno.test("example test", () => {
