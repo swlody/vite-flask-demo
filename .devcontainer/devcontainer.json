@@ -19,7 +19,8 @@
 				"esbenp.prettier-vscode",
 				"github.vscode-github-actions",
 				"charliermarsh.ruff",
-				"dotenv.dotenv-vscode"
+				"dotenv.dotenv-vscode",
+				"tamasfe.even-better-toml"
 			],
 			"settings": {
 				"[css]": {
