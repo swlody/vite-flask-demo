@@ -1,14 +1,13 @@
 [project]
 name = "backend"
 version = "0.1.0"
-description = "Add your description here"
+description = "backend"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "flask>=3.1.0",
     "flask-cors>=5.0.0",
     "gunicorn>=23.0.0",
-    "pandas>=2.2.3",
 ]
 
 [tool.uv]
