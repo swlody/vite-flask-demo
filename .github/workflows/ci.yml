@@ -30,10 +30,10 @@ jobs:
         run: deno install --allow-scripts
 
       - name: Run linter
-        run: deno lint src/**
+        run: deno lint src/
 
       - name: Check formatting
-        run: deno fmt --check
+        run: deno fmt --check src/
 
       - name: Run tests
         run: deno test --parallel tests/
@@ -46,10 +46,10 @@ jobs:
         uses: astral-sh/ruff-action@v3
 
       - name: Check formatting
-        run: ruff format --check
+        run: ruff format --check backend/
 
       - name: Lint code
-        run: ruff check
+        run: ruff check backend/
 
   test-db:
     name: Test database

@@ -10,6 +10,8 @@
     "npm:@types/react@^18.3.12": "18.3.18",
     "npm:@vitejs/plugin-react@^4.3.4": "4.3.4_vite@6.0.11_@babel+core@7.26.0",
     "npm:create-vite-extra@latest": "3.0.0",
+    "npm:prettier@*": "3.4.2",
+    "npm:prettier@^3.4.2": "3.4.2",
     "npm:react-dom@^18.3.1": "18.3.1_react@18.3.1",
     "npm:react@^18.3.1": "18.3.1",
     "npm:supabase@*": "2.6.8",
@@ -978,6 +980,9 @@
         "source-map-js"
       ]
     },
+    "prettier@3.4.2": {
+      "integrity": "sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ=="
+    },
     "printable-characters@1.0.42": {
       "integrity": "sha512-dKp+C4iXWK4vVYZmYSd0KBH5F/h1HoZRsbJ82AVKRO3PEo8L4lBS/vLwhVtpwwuYcoIsVY+1JYKR268yn480uQ=="
     },
@@ -1281,6 +1286,7 @@
       "npm:@types/react-dom@^18.3.1",
       "npm:@types/react@^18.3.12",
       "npm:@vitejs/plugin-react@^4.3.4",
+      "npm:prettier@^3.4.2",
       "npm:react-dom@^18.3.1",
       "npm:react@^18.3.1",
       "npm:supabase@^2.6.8",
